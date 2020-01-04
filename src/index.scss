@@ -130,3 +130,18 @@ ul{
 .ErrorInfo{
   margin-top: 2%;
 }
+
+.NewM{
+  width: 100%;
+  float: left;
+  height: auto;
+  min-height: 50px;
+  text-align: center;
+  background: white;
+  opacity: 0.5;
+  ul{
+    li{
+      width: 33%;
+    }
+  }
+}

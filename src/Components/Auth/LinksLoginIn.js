@@ -1,28 +1,49 @@
-import React from 'react';
+import React,{Component} from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
+import NewMenu from '../Layaut/NewMenu';
 
-const LinksLoginIn = (props) =>{
-    const {profile} = props;
+
+
+
+
+class LinksLoginIn extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            isToggleOn: false
+        }
+    }
+
+    toogle = e =>{
+        this.setState(state => ({
+            isToggleOn: !state.isToggleOn
+      }));
+    }
     
+    render(){
+    const {profile} = this.props;
+   
         return (
             <div className="LinksIn">
                 <ul>
                  <li><NavLink to="/createproject">Zlecenie Naprawy!</NavLink></li> 
-                 <li><button className="btn btn-danger" onClick={props.signOut}>Wyloguj się!</button></li> 
-                 <li><NavLink to="/contact">Menu</NavLink></li>
+                 <li><button className="btn btn-danger" onClick={this.props.signOut}>Wyloguj się!</button></li> 
+                 <li><button onClick={this.toogle}>Menu</button></li>
                  <li>{profile.initials}</li>
-                 
                </ul> 
+               {this.state.isToggleOn ? <NewMenu/> : null}
             </div>
         )
 }
-
+}
 
 const mapDispatchToProps = (dispatch) => {
     return{
         signOut: () => dispatch(signOut())
+        
     }
 }
 
