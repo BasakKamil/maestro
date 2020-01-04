@@ -2,7 +2,9 @@ import React from 'react';
 
 const Notifications = ()=>{
     return(
-        <div></div>
+        <div className="NotificationsKamcia">
+            <p>Yeaaaaa</p>
+        </div>
     )
 }
 

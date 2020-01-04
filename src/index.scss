@@ -100,8 +100,9 @@ ul{
     }
     textarea{
       width: 48%;
-    float: left;
-    margin: 1%;
+      float: left;
+      margin: 1%;
+      max-height: 250px;
     }
     select{
       width: 48%;
@@ -109,4 +110,17 @@ ul{
     margin: 1%;
     }
 
+}
+
+.DashboardCont{
+  .row{
+    display: block;
+    position: relative;
+    z-index: 99999;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    opacity: 0.6;
+  }
 }

@@ -1,11 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { createProject } from '../../store/actions/projectActions';
+import { connect } from 'react-redux';
 
-export class SignUp extends Component {
+export class CreateProject extends Component {
     state = {
         title: '',
         content: '',
+        date: new Date(),
         select: [],
-        date: new Date()
 
     }
 
@@ -16,7 +18,7 @@ export class SignUp extends Component {
     } 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
+        this.props.createProject(this.state);
         this.cancelCourse();
     } 
 
@@ -52,8 +54,6 @@ export class SignUp extends Component {
                             </select>
                         </div>
 
-                       
-
                         <div className="input-field">
                             <button className="btn btn-success">Zarejstruj się!</button>
                         </div>
@@ -68,4 +68,10 @@ export class SignUp extends Component {
     }
 }
 
-export default SignUp
+const mapDispatchToProps = (dispatch) => {
+    return{
+        createProject: (project) => dispatch(createProject(project))
+    }
+}
+
+export default connect(null,mapDispatchToProps)(CreateProject)
