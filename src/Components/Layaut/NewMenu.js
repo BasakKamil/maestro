@@ -6,8 +6,8 @@ export class NewMenu extends Component {
         return (
             <div className="NewM">
                 <ul className="InUl">
-                    <li><NavLink to="">Sklep</NavLink></li>
-                    <li><NavLink to="">O Mnie</NavLink></li>
+                    <li><NavLink to="/shop">Sklep</NavLink></li>
+                    <li><NavLink to="/about">O Mnie</NavLink></li>
                     <li><NavLink to="/contact">Kontakt</NavLink></li>
                 </ul>
             </div>

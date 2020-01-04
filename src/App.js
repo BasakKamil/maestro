@@ -10,6 +10,7 @@ import SignIn from './Components/Autoryzacja/SignIn';
 import SignUp from './Components/Autoryzacja/SignUp';
 import ProjectDetails from './Components/Project/ProjectDetails';
 import Contact from './Components/NavInside/Contact';
+import About from './Components/NavInside/About';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
           <Route path="/signin" component={SignIn}/>
           <Route path="/signup" component={SignUp}/>
           <Route path="/contact" component={Contact}/>
+          <Route path="/shop" component={Shop}/>
+          <Route path="/about" component={About}/>
         </Switch>
         
       </div>
