@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signIn } from '../../store/actions/authActions';
+import { Redirect } from 'react-router-dom';
 
 export class SignIn extends Component {
     state = {
@@ -13,15 +16,17 @@ export class SignIn extends Component {
     } 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
-        this.cancelCourse();
+        this.props.signIn(this.state);
+        
     } 
 
-    cancelCourse = () => { 
-         document.querySelector(".whiteForemka").reset();
-    }
+    // cancelCourse = () => { 
+    //      document.querySelector(".whiteForemka").reset();
+    // }
 
     render() {
+        const {auth,authError} = this.props;
+        if(auth.uid) return <Redirect to="/" />
         return (
             <div className="container FormKamil">
                 <form>
@@ -40,6 +45,9 @@ export class SignIn extends Component {
                         <div className="input-field">
                             <button className="btn btn-success">Zaloguj się!</button>
                         </div>
+                        <p className="ErrorInfo">
+                         {authError ? <p>{authError}</p> : null}
+                        </p>
 
                         
                     </form>
@@ -50,5 +58,17 @@ export class SignIn extends Component {
         )
     }
 }
+const mapStateToProps= (state) => {
+    return{
+        authError: state.auth.authError,
+        auth: state.firebase.auth
+    }
+}
 
-export default SignIn
+const mapDispatchToProps = (dispatch) => {
+    return{
+        signIn: (creds) => dispatch(signIn(creds))
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SignIn)

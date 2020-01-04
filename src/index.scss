@@ -33,6 +33,7 @@ code {
     position: relative;
     width: 100%;
     height: auto;
+    min-height: 100px;
 }
 
 ul{
@@ -64,8 +65,9 @@ ul{
     position: relative;
     width: 70%;
     z-index: 999999;
-    background: white;
+    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
     margin-top: 10%;
+    opacity: 0.7;
 }
 
 
@@ -123,4 +125,8 @@ ul{
     margin-bottom: 5%;
     opacity: 0.6;
   }
+}
+
+.ErrorInfo{
+  margin-top: 2%;
 }
