@@ -77,10 +77,11 @@ ul{
   background: white;
   z-index: 9999999;
   position: relative;
-  width: 76%;
+  width: 80%;
   left: 10%;
   border-radius: 10px;
   padding: 2%;
+  margin-bottom: 2%;
 }
 
 .whiteForemka{
@@ -145,6 +146,49 @@ ul{
       width: 33%;
     }
   }
+}
+.WeatherApp{
+  position: relative;
+  display: block;
+  z-index: 99999;
+  height: auto;
+  min-height: 100px;
+  .Tempka{
+    p{
+
+    }
+    width: 50%;
+    float: left;
+  }
+  canvas{
+    width: 50% !important;
+    float: left;
+    transform: scale(0.6);
+  }
+}
+.Current{
+    background: yellow;
+    border-radius: 10px;
+    margin-bottom: 2%;
+}
+.AllMap{
+  
+    display: block;
+    position: relative;
+    height: auto;
+    border: 1px solid black;
+    min-height: 100px;
+    .MapkaKamila{
+      display: block;
+      width: 100% !important;
+      height: 400px;
+   
+    }
+}
+
+.Logos{
+    position: absolute;
+    right: 3%;
 }
 
 @media screen and (max-width: 800px){

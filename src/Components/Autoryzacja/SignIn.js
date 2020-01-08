@@ -19,18 +19,17 @@ export class SignIn extends Component {
     } 
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state);
         this.props.signIn(this.state);
+       
         
     } 
 
-    // cancelCourse = () => { 
-    //      document.querySelector(".whiteForemka").reset();
-    // }
+   
 
     render() {
         const {auth,authError} = this.props;
         if(auth.uid) return <Redirect to="/" />
+        
         return (
             <MuiThemeProvider>
                 <React.Fragment>

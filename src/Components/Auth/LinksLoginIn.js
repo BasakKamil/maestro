@@ -34,7 +34,7 @@ class LinksLoginIn extends Component {
                  <li><button onClick={this.toogle}>Menu</button></li>
                  <li>{profile.initials}</li>
                </ul> 
-               {this.state.isToggleOn ? <NewMenu/> : null}
+               {this.state.isToggleOn ? <NewMenu toogle={this.toogle}/> : null}
             </div>
         )
 }

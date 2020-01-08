@@ -10,7 +10,7 @@ const Navbar = (props) =>{
     return(
         <div className="NavbarBasi">
                 <nav className="nav-wrapper">
-                    <Link to="/">iMjaster</Link>
+                    <Link  className="Logos" to="/">iMjaster</Link>
                     {links}
                 </nav>
         </div>
