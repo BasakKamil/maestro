@@ -30,7 +30,7 @@ class LinksLoginIn extends Component {
             <div className="LinksIn">
                 <ul>
                  <li><NavLink to="/createproject">Zlecenie Naprawy!</NavLink></li> 
-                 <li><button className="btn btn-danger" onClick={this.props.signOut}>Wyloguj się!</button></li> 
+                 <li><button className="btn btn-primary" onClick={this.props.signOut}>Wyloguj się!</button></li> 
                  <li><button onClick={this.toogle}>Menu</button></li>
                  <li>{profile.initials}</li>
                </ul> 

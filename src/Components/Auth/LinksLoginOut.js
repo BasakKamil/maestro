@@ -6,8 +6,8 @@ export class LinksLoginOut extends Component {
         return (
             <div className="LinksOut">
                <ul>
-                 <li><Link to="/signin">Zaloguj się!</Link></li>
-                 <li><Link to="/signup">Zarejstruj</Link></li> 
+                 <li><button className="btn btn-dark NowyK"><Link to="/signin">Zaloguj się!</Link></button></li>
+                 <li><button className="btn btn-danger NowyK"><Link to="/signup">Zarejstruj</Link></button></li> 
                </ul> 
             </div>
         )

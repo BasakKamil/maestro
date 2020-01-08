@@ -70,13 +70,19 @@ ul{
     opacity: 0.7;
     margin-bottom: 5%;
 }
-
+.NowyK{
+  a{
+    color: white;
+  }
+  
+}
 
 .ContactPage{
   margin-top: 6%;
   background: white;
   z-index: 9999999;
   position: relative;
+  z-index: 9;
   width: 80%;
   left: 10%;
   border-radius: 10px;
@@ -131,6 +137,8 @@ ul{
 
 .ErrorInfo{
   margin-top: 2%;
+  padding: 1%;
+
 }
 
 .NewM{
@@ -154,9 +162,7 @@ ul{
   height: auto;
   min-height: 100px;
   .Tempka{
-    p{
-
-    }
+   
     width: 50%;
     float: left;
   }
@@ -190,7 +196,32 @@ ul{
     position: absolute;
     right: 3%;
 }
-
+.ButtonLogin{
+    position: relative;
+    overflow: visible;
+    display: table;
+    height: auto;
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 4%;
+}
+.NowyK{
+  margin-left: 2%;
+}
+.LinksOut{
+    display: block;
+    width: 100%;
+    height: auto;
+    min-height: 50px;
+    ul{
+      li{
+        margin-left: 2%;
+        margin-right: 2%;
+        text-decoration: none;
+        list-style: none;
+      }
+    }
+}
 @media screen and (max-width: 800px){
   .input-field { 
     label{
