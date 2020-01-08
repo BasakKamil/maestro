@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { signIn } from '../../store/actions/authActions';
 import { Redirect } from 'react-router-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RadioButton';
 
 export class SignIn extends Component {
     state = {
@@ -9,13 +12,14 @@ export class SignIn extends Component {
         password: ''
     }
 
-    handleChange = (e) => {
+    handleChange = input => (e) => {
         this.setState({
-            [e.target.id]: e.target.value
+            [input]: e.target.value
         })
     } 
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log(this.state);
         this.props.signIn(this.state);
         
     } 
@@ -28,33 +32,38 @@ export class SignIn extends Component {
         const {auth,authError} = this.props;
         if(auth.uid) return <Redirect to="/" />
         return (
-            <div className="container FormKamil">
-                <form>
-                    <form onSubmit={this.handleSubmit} className="whiteForemka">
-                        <h5>Zaloguj się !</h5>
-                        <div className="input-field">
-                            <label htmlFor="email"> Podaj Email </label>
-                            <input type="email" id="email" onChange={this.handleChange} />
-                        </div>
-
-                        <div className="input-field">
-                            <label htmlFor="password">Podaj Hasło </label>
-                            <input type="password" id="password" onChange={this.handleChange}/>
-                        </div>
-
-                        <div className="input-field">
-                            <button className="btn btn-success">Zaloguj się!</button>
-                        </div>
-                        <p className="ErrorInfo">
+            <MuiThemeProvider>
+                <React.Fragment>
+                <div className="container FormKamil">
+                <TextField  
+                hintText="email"
+                floatingLabelText="email"
+                onChange={this.handleChange('email')}
+                defaultValue={this.state.email}
+               />
+                <br/>
+                <TextField  
+                hintText="password"
+                floatingLabelText="password"
+                onChange={this.handleChange('password')}
+                defaultValue={this.state.password}
+                />
+               
+                <RaisedButton
+                    label="Dalej"
+                    primary={true}
+                    onClick={this.handleSubmit}
+                    className="ButtonLogin btn btn-success"
+                />
+                 <p className="ErrorInfo">
                          {authError ? <p>{authError}</p> : null}
-                        </p>
-
-                        
-                    </form>
-
-                </form>
+                 </p>
+                 </div>    
+                 </React.Fragment>
+             </MuiThemeProvider>
+           
                 
-            </div>
+            
         )
     }
 }

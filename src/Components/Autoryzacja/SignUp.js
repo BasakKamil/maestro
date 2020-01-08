@@ -39,7 +39,7 @@ export class SignUp extends Component {
             <div className="container FormKamil">
                 <form>
                     <form onSubmit={this.handleSubmit} className="whiteForemka">
-                        <h5>Zaloguj się !</h5>
+                        <h5>Zarejstruj się !</h5>
                         <div className="input-field">
                             <label htmlFor="email"> Podaj Email </label>
                             <input type="email" id="email" onChange={this.handleChange} />

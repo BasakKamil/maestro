@@ -40,6 +40,7 @@ export const signUp = (newUser) => {
                 address: newUser.address,
                 post: newUser.post,
                 city: newUser.city,
+                phone: newUser.phone,
                 date: newUser.date,
                 initials: newUser.name + newUser.surname[0]
             }).then(()=>{
