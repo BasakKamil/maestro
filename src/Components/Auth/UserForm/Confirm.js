@@ -24,12 +24,14 @@ export class Confirm extends Component {
                     <div className="container FormKamil">
                     <TextField  
                     hintText="Podaj Email"
+                    type="email"
                     floatingLabelText="Email"
                     onChange={handleChange('email')}
                     defaultValue={values.email}/>
                     <br/>
                     <TextField  
                     hintText="Podaj Hasło"
+                    type="password"
                     floatingLabelText="Hasło"
                     onChange={handleChange('password')}
                     defaultValue={values.password}/>

@@ -37,6 +37,7 @@ export class SignIn extends Component {
                 <div className="container FormKamil">
                 <TextField  
                 hintText="email"
+                type="email" 
                 floatingLabelText="email"
                 onChange={this.handleChange('email')}
                 defaultValue={this.state.email}
@@ -44,6 +45,7 @@ export class SignIn extends Component {
                 <br/>
                 <TextField  
                 hintText="password"
+                type="password"
                 floatingLabelText="password"
                 onChange={this.handleChange('password')}
                 defaultValue={this.state.password}
