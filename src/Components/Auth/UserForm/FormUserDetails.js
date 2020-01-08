@@ -47,7 +47,6 @@ const styles={
     button: {
         margin: '1%',
         width: '98%',
-        background: 'lightblue',
         padding: '1%'
     }
 }

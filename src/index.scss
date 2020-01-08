@@ -63,12 +63,14 @@ ul{
 .FormKamil{
     display: block;
     position: relative;
+    padding: 1%;
     width: 70%;
     z-index: 999999;
     background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
     margin-top: 3%;
-    opacity: 0.7;
+    opacity: 0.85;
     margin-bottom: 5%;
+    border-radius: 5px;
 }
 .NowyK{
   a{
@@ -140,7 +142,16 @@ ul{
   padding: 1%;
 
 }
-
+.Dolce{
+  font-size: 20px;
+  color: #009688;
+  font-weight: bold;
+}
+.Frank{
+  font-size: 20px;
+  color: #009688;
+  font-weight: bold;
+}
 .NewM{
   width: 100%;
   float: left;
@@ -221,6 +232,12 @@ ul{
         list-style: none;
       }
     }
+}
+.ButtonNew{
+  background: deepskyblue;
+  input{
+    margin-bottom: 5%;
+  }
 }
 @media screen and (max-width: 800px){
   .input-field { 
