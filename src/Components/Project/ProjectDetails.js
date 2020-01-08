@@ -18,8 +18,10 @@ const ProjectDetails = (props) => {
      <span className="card-title"> Project Title {project.title}</span>
 
         <div className="authorProject">
-    <p>Autor: {project.authorLastName}</p>
+          <p className="Auth">Autor: {project.authorFirstName} {project.authorLastName}</p>
         </div>
+        <span className="textAll">Opis: <br/>
+        {project.content}</span>
      </div>
     </div>
     )
