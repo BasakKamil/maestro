@@ -1,13 +1,17 @@
-import React, { Component } from 'react'
+import React from 'react';
+import Title from '../Animate/Title';
 
-export class About extends Component {
-    render() {
+const About = () =>{
+    
         return (
-            <div>
-                About
+            <div className="container AboutKamil">
+                <Title lineContent="Witaj w" lineContent2="O Mnie"/>
+                <div className="info">
+                    O mnieeee
+                </div>
             </div>
         )
-    }
+    
 }
 
 export default About

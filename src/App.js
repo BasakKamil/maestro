@@ -12,15 +12,11 @@ import Contact from './Components/NavInside/Contact';
 import About from './Components/NavInside/About';
 import UserForm from './Components/Auth/UserForm/UserForm';
 
+
 const routes = [
-  {path: '/', name: "Dashboard", Component: Dashboard },
   {path: '/shop', name: "Shop", Component: Shop },
-  {path: '/Createproject', name: "Createproject", Component: Createproject },
-  {path: '/signin', name: "SignIn", Component: SignIn},
-  {path: '/signup', name: "UserForm", Component: UserForm },
   {path: '/contact', name: "Contact", Component: Contact },
   {path: '/about', name: "About", Component: About }
- 
 ]
 
 function App() {
@@ -30,22 +26,22 @@ function App() {
       <div className="App">
         <Navbar/>
         <Switch>
-          {/* <Route exact path="/" component={Dashboard}/>
-          <Route path="/shop" component={Shop}/>
+          <Route exact path="/" component={Dashboard}/>
           <Route path="/project/:id" component={ProjectDetails}/>
           <Route path="/createproject" component={Createproject}/>
           <Route path="/signin" component={SignIn}/>
           <Route path="/signup" component={UserForm}/>
-          <Route path="/contact" component={Contact}/>
-          <Route path="/about" component={About}/> */}
-          {routes.map(({path,Component})=>{
-           return <Route key="name" path={path} exact>
-             <div className="page">
-               <Component/>
-             </div>
-           </Route>
-          })}
-          <Route path="/project/:id" component={ProjectDetails}/>
+      
+        
+           {routes.map(({path,Component})=>{
+            return <Route key="name" path={path} exact>
+                      <div className="page">
+                         <Component/>
+                      </div>
+                   </Route>
+            })}
+          
+          
         </Switch>
         
       </div>

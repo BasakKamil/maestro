@@ -14,7 +14,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.page{
+  position: relative;
+  z-index: 999999;
+  display: block;
+  margin-top: 4%;
+  width: 100%;
+}
 .ThreeBack{
   z-index: 1;
     position: fixed;

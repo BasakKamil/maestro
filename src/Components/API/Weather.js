@@ -22,11 +22,11 @@ class Weather extends Component{
               const lat = 52.185970;
               const long = 21.184840;
              
-              const proxy = 'http://cors-anywhere.herokuapp.com/';
+              const proxy = 'https://cors-anywhere.herokuapp.com/';
               const api = `${proxy}https://api.darksky.net/forecast/a18f321825c2c6503931cf827ff61142/${lat},${long}`;
-              const dol = `${proxy}http://api.nbp.pl/api/exchangerates/rates/c/usd?format=json`;
+              const dol = `${proxy}https://api.nbp.pl/api/exchangerates/rates/c/usd?format=json`;
               const kamilaserver = `${proxy}https://nodeback-js.herokuapp.com/`;
-              const Euro = `${proxy}http://api.nbp.pl/api/exchangerates/rates/c/eur?format=json`;
+              const Euro = `${proxy}https://api.nbp.pl/api/exchangerates/rates/c/eur?format=json`;
  
                 fetch(api)
                 .then(response => response.json())
