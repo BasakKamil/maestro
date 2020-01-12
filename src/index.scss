@@ -9,6 +9,19 @@ body {
     margin-top: 5%;
   }
 }
+.DashboardCont{
+	.row{
+		display: block;
+		position: relative;
+		z-index: 99999;
+		width: 80%;
+		margin-left: 10%;
+		margin-top: 2%;
+		margin-bottom: 5%;
+		opacity: 0.85;
+	}
+  }
+  
 .LogoKamila{
 	z-index: 99;
     display: block;
@@ -226,18 +239,7 @@ ul{
     }
 
 }
-.DashboardCont{
-  .row{
-    display: block;
-    position: relative;
-    z-index: 99999;
-    width: 80%;
-    margin-left: 10%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    opacity: 0.6;
-  }
-}
+
 
 .ErrorInfo{
   margin-top: 2%;
@@ -360,8 +362,10 @@ svg{
 		display: block;
 		position: relative;
 		z-index: 99;
-		transform: scale(0.6);
-	
+		transform: scale(0.6);	
+}
+svg:hover{
+	transform: scale(0.75);	
 }
 .st0{enable-background:new    ;}
 	.st1{clip-path:url(#SVGID_2_);enable-background:new    ;}
@@ -706,6 +710,11 @@ svg{
     }
   }
 
+}
+@media screen and (max-width: 1000px){
+	.FormKamilLog{
+		width: 90%;  
+	}
 }
 
 

@@ -3,10 +3,18 @@ import * as THREE from 'three';
 import { WebGLRenderer } from 'three';
 import smoke from '../../images/smoke1.png';
 import stars from '../../images/star.png';
+import Foto1 from '../../images/logawww/oskar.jpg';
+import Foto2 from '../../images/logawww/slub.jpg';
+import Foto3 from '../../images/logawww/amman.jpg';
+import Foto4 from '../../images/logawww/soprano.png';
 
 export class ThreeBack extends Component {
-    constructor(){
-        super();
+    constructor(props){
+        super(props);
+        this.foto = [Foto1, Foto2, Foto3, Foto4];
+        this.animate = this.animate.bind(this);
+        this.addCube = this.addCube.bind(this);
+       
         this.state = {
             // Express Login- backend
             apiResponse : "",
@@ -18,6 +26,8 @@ export class ThreeBack extends Component {
     
     
     }
+
+  
 
     kamil = (texture) => {
         this.cloudGeo = new THREE.PlaneBufferGeometry(400,400);
@@ -42,6 +52,7 @@ export class ThreeBack extends Component {
             this.scene.add(this.cloud); 
         }   
     }
+
     stars = (texture) =>{
 
         // Utworze sobie geometrie do schowania gwiazd
@@ -64,16 +75,56 @@ export class ThreeBack extends Component {
         this.scene.add(this.stars);
 
     }
+    pushBox = () => {
+        
+        for(let j=0; j<this.foto.length;j++){
+           
+            this.start = window.innerWidth / this.foto.length;
+        
+            this.cloudGeo[j] = new THREE.BoxGeometry(8,8,8);
+            this.cloudMaterial[j] = [
+                new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(this.foto[j]), side: THREE.DoubleSide}),
+                new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(this.foto[j]), side: THREE.DoubleSide}),
+                new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(this.foto[j]), side: THREE.DoubleSide}),
+                new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(this.foto[j]), side: THREE.DoubleSide}),
+                new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(this.foto[j]), side: THREE.DoubleSide}),
+                new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(this.foto[j]), side: THREE.DoubleSide})
+              ];
+            this.box[j] = new THREE.Mesh(this.cloudGeo[j], this.cloudMaterial[j]);
+            this.box[j].position.set(-this.start/15 +j*20,30,-30);
+            this.addCube(this.box[j]);
+        } 
+    }
+    box = (Foto1) =>{
+
+        // Utworze sobie schemat do boxów stron wwww
+        // this.box = new THREE.BoxGeometry( 7, 7, 7 );
+        this.boxmaterial =  [
+            new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(Foto1), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(Foto1), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(Foto1), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(Foto1), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(Foto1), side: THREE.DoubleSide}),
+            new THREE.MeshBasicMaterial({color: 0xffffff, map:new THREE.TextureLoader().load(Foto1), side: THREE.DoubleSide})
+          ];
+        this.boxown= new THREE.Mesh(this.box, this.boxmaterial);
+        this.boxown.position.set(0,30,-30);
+        this.addCube(this.boxown);
+      
+       
+       
+
+    }
     superSztorm = () => {
         this.width = window.innerWidth;
         this.height = window.innerHeight;
         this.scene = new THREE.Scene();
-        this.camera = new THREE.PerspectiveCamera(60,this.width / this.height,1,1000 );
-        
-        this.camera.position.z = 1;
-        this.camera.rotation.x = 1.16;
+        this.camera = new THREE.PerspectiveCamera(70,this.width / this.height,1,1000 );
+        this.camera.position.set(0,0,0);
+
+        this.camera.rotation.x = 1.12;
         this.camera.rotation.y = -0.12;
-        this.camera.position.z = 0.27;
+       
         // DODAJE ŚWIATŁA
         this.ambient = new THREE.AmbientLight(0x555555);
         this.directionalLight = new THREE.DirectionalLight(0xffeedd);
@@ -93,18 +144,24 @@ export class ThreeBack extends Component {
         this.loader = new THREE.TextureLoader().load(smoke);
         this.loader2 = new THREE.TextureLoader().load(stars);
         this.kamil(this.loader);
-        // this.stars(this.loader2);
+
+        this.pushBox();
         this.animate();
+       
     
     
     }
     componentDidMount(){
+     
         this.superSztorm();
      
      }
     animate = () =>{
         this.frameId = window.requestAnimationFrame(this.animate);
         this.renderer.render(this.scene, this.camera);
+       for(let j=0;j<this.foto.length;j++){
+          this.box[j].rotation.z += 0.01;
+       }
         this.cloudParticles.forEach(p=>{
             p.rotation.z -=0.01; 
         });
@@ -119,6 +176,9 @@ export class ThreeBack extends Component {
     
             
         }
+      }
+      addCube(cube) {
+        this.scene.add(cube);
       }
     render() {
         return (

@@ -79,7 +79,6 @@ this.animate();
     animate() {
         this.frameId = window.requestAnimationFrame(this.animate);
         this.renderer.render(this.scene, this.camera);
-
         this.cube.rotation.y += 0.01;
        
       }
