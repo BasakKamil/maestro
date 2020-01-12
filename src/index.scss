@@ -10,13 +10,22 @@ body {
   }
 }
 .LogoKamila{
-	
-		z-index: 99;
-		display: block;
-		width: 100%;
-		height: auto;
-		min-height: 40px;
-		opacity: 1;
+	z-index: 99;
+    display: block;
+    width: 80%;
+    height: auto;
+    margin-left: 10%;
+    min-height: 40px;
+    opacity: 1;
+	.ProfileInitLog{
+			text-decoration: none;
+   			 color: black;
+   			 opacity: 0.8;
+  			  width: 75%;
+   			 background: white;
+   			 margin: 0 auto;
+			border-radius: 10px;
+		}
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -76,7 +85,7 @@ ul{
 .project-details{
   position: relative;
     display: block;
-    z-index: 9999;
+    z-index: 99999;
     margin-top: 7%;
     background: white;
     width: 76%;
@@ -303,7 +312,7 @@ ul{
 
 .Logos{
     position: absolute;
-	right: 3%;
+	right: 2%;
     z-index: 100;
     display: block;
     background: none;
@@ -345,7 +354,14 @@ ul{
   }
 }
 svg{
-	overflow: visible !important;
+	    overflow: visible !important;
+		width: 90%;
+		height: auto;
+		display: block;
+		position: relative;
+		z-index: 99;
+		transform: scale(0.6);
+	
 }
 .st0{enable-background:new    ;}
 	.st1{clip-path:url(#SVGID_2_);enable-background:new    ;}
