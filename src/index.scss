@@ -1,10 +1,15 @@
-$background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
 
+$background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+$famillyLog: 'Kanit', sans-serif;
+$fontBut: 'Righteous', cursive;
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: $famillyLog;
   background: $background-image;
+
   button{
     margin-top: 5%;
   }
@@ -119,6 +124,9 @@ ul{
 	border-radius: 5px;
 	.LogUno{
 		width: 100% !important;
+	}
+	input{
+		font-family: $famillyLog;
 	}
 }
 
