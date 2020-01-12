@@ -1,11 +1,10 @@
 import React, { useRef, useEffect } from 'react';
 import {TweenMax, Power3} from 'gsap';
 import logo from '../../images/star.png';
+import { connect } from 'react-redux';
 
 function Shop(){
-
-   
-  
+        const {auth} = this.props;
         let logoItem = useRef(null);
         let textItem = useRef(null);
        
@@ -29,6 +28,7 @@ function Shop(){
                          delay: .2
             })
         },[])
+        if(!auth.uid) return <Redirect to="/signin" />
         return (
             <div className="ShopKamila">
                 <img
@@ -73,4 +73,12 @@ function Shop(){
      
 }
 
-export default Shop
+const mapStateToProps = (state) => {
+    return{
+        auth: state.firebase.auth,
+        profile: state.firebase.profile
+       
+    }
+}
+
+export default connect(mapStateToProps)(Shop)
