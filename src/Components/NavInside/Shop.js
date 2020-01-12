@@ -34,7 +34,7 @@ function Shop(){
                 <img
                 ref={el=>{logoItem=el}}
                 src={logo}
-                className="LogoKamila"
+                className="LogoKamilaNew"
                 alt="logo"
                 />
                 <h2 ref={el=>{textItem=el}}>Witaj w Sklepie :D</h2>

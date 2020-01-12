@@ -1,5 +1,5 @@
 import React,{useEffect, useRef} from 'react';
-import { TweenMax ,Power3, gsap} from 'gsap';
+import { TweenMax } from 'gsap';
 
 const Title = ({lineContent, lineContent2}) =>{
     let line1 = useRef(null);

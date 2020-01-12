@@ -33,10 +33,11 @@ export class SignIn extends Component {
         return (
             <MuiThemeProvider>
                 <React.Fragment>
-                <div className="container FormKamil">
+                <div className="container FormKamilLog">
                 <TextField  
                 hintText="email"
                 type="email" 
+                className="LogUno"
                 floatingLabelText="email"
                 onChange={this.handleChange('email')}
                 defaultValue={this.state.email}
@@ -45,13 +46,14 @@ export class SignIn extends Component {
                 <TextField  
                 hintText="password"
                 type="password"
+                className="LogUno"
                 floatingLabelText="password"
                 onChange={this.handleChange('password')}
                 defaultValue={this.state.password}
                 />
                
                 <RaisedButton
-                    label="Dalej"
+                    label="Zaloguj !"
                     primary={true}
                     onClick={this.handleSubmit}
                     className="ButtonLogin btn btn-success"

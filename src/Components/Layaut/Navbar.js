@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import LinksLoginIn from '../Auth/LinksLoginIn';
 import LinksLoginOut from '../Auth/LinksLoginOut';
 import { connect } from 'react-redux';
+import Logo from './Logo';
 
 const Navbar = (props) =>{
    const {auth, profile} = props;
@@ -10,7 +11,7 @@ const Navbar = (props) =>{
     return(
         <div className="NavbarBasi">
                 <nav className="nav-wrapper">
-                    <Link  className="Logos" to="/">iMjaster</Link>
+                    <Link  className="Logos" to="/"><Logo/></Link>
                     {links}
                 </nav>
         </div>

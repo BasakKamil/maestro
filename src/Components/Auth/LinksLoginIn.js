@@ -33,6 +33,7 @@ class LinksLoginIn extends Component {
                  <li><button className="btn btn-primary" onClick={this.props.signOut}>Wyloguj się!</button></li> 
                  <li><button onClick={this.toogle}>Menu</button></li>
                  <li>{profile.initials}</li>
+                
                </ul> 
                {this.state.isToggleOn ? <NewMenu toogle={this.toogle}/> : null}
             </div>
