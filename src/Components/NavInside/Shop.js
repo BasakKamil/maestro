@@ -1,85 +1,81 @@
-import React, { useRef, useEffect } from 'react';
+import React, {  useRef, useEffect, Component } from 'react';
 import {TweenMax, Power3} from 'gsap';
 import logo from '../../images/star.png';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import ProductAll from '../Products/ProductAll';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
 
-function Shop(){
+
+
+class Shop extends Component{
+
+    state ={
+        products : []
+    }
+    // const logoItem = useRef(null);
+    // const textItem = useRef(null);
+    
+    //     useEffect(() => {
+           
+    //         return () => {
+    //             TweenMax.to(
+    //                 this.logoItem,
+    //                  .8, 
+    //                  {
+    //                      opacity: 1, 
+    //                      y: -20,
+    //                      ease: Power3.easeOut
+    //                 })
+    //             TweenMax.to(
+    //                    this.textItem,
+    //                      .8, 
+    //                      {
+    //                          opacity: 1, 
+    //                          y: -20,
+    //                          ease: Power3.easeOut,
+    //                          delay: .2
+    //             })
+    //         };
+    //     }, [])
+
+   
+        render(){
         const {auth} = this.props;
-        let logoItem = useRef(null);
-        let textItem = useRef(null);
+        const {products} = this.props;
+            
+            if(!auth.uid) return <Redirect to="/signin" />
+            return (
+                <div className="ShopKamila">
+                    <img src={logo} alt="" />
+                           <ProductAll products={products}/>
+                </div>
+                
+            )
+        
        
-        useEffect(()=>{
-            console.log(logoItem);
-            TweenMax.to(
-                logoItem,
-                 .8, 
-                 {
-                     opacity: 1, 
-                     y: -20,
-                     ease: Power3.easeOut
-                })
-            TweenMax.to(
-                    textItem,
-                     .8, 
-                     {
-                         opacity: 1, 
-                         y: -20,
-                         ease: Power3.easeOut,
-                         delay: .2
-            })
-        },[])
-        if(!auth.uid) return <Redirect to="/signin" />
-        return (
-            <div className="ShopKamila">
-                <img
-                ref={el=>{logoItem=el}}
-                src={logo}
-                className="LogoKamilaNew"
-                alt="logo"
-                />
-                <h2 ref={el=>{textItem=el}}>Witaj w Sklepie :D</h2>
-                <nav>
-                <ul>      
-                    <li><a data-page="iPhone" href="https://allegro.pl/">iPhone</a></li>
-                    <li><a data-page="iPad" href="https://allegro.pl/">iPad</a></li>
-                    <li><a data-page="iPod" href="https://allegro.pl/">iPod</a></li>
-                    <li><a data-page="iMac" href="https://allegro.pl/">iMac</a></li>
-                    <li><a data-page="MacBook" href="https://allegro.pl/">MacBook</a></li>
-                </ul>
-                </nav>
-                <main>
-                    <section 
-                    
-                    data-index="0" 
-                    className="iPhone">
-                        <h2 >iPhone</h2>
-
-                    </section>
-                    <section data-index="1" className="iPad">
-                        <h2>iPad</h2>
-
-                    </section>
-                    <section data-index="2" className="iMac">
-                        <h2>iMac</h2>
-
-                    </section>
-                    <section data-index="3" className="MacBook">
-                        <h2>MacBook</h2>
-
-                    </section>
-                </main>
-            </div>
-        )
      
-}
 
-const mapStateToProps = (state) => {
+
+            }
+        }
+const mapStateToProps = (state,ownProps) => {
+   
+    const products = state.firestore.ordered.products;
+ 
+
     return{
         auth: state.firebase.auth,
-        profile: state.firebase.profile
+        profile: state.firebase.profile,
+        products: products
        
     }
 }
 
-export default connect(mapStateToProps)(Shop)
+export default compose (
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'products'}
+    ])
+)(Shop)
