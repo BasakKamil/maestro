@@ -319,6 +319,7 @@ ul{
     display: block;
     background: none;
 	color: white;
+	width: 25%;
 	
 }
 .ButtonLogin{
@@ -362,7 +363,7 @@ svg{
 		display: block;
 		position: relative;
 		z-index: 99;
-		transform: scale(0.6);	
+		transform: scale(0.5);	
 }
 svg:hover{
 	transform: scale(0.75);	
