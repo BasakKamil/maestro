@@ -24,22 +24,26 @@ export class FormPersonalDetails extends Component {
                 <React.Fragment>
                     <div className="container FormKamil">
                     <TextField  
+                    className="LogDuo"
                     hintText="Podaj Adres"
                     floatingLabelText="Adres"
                     onChange={handleChange('address')}
                     defaultValue={values.address}/>
                     <br/>
                     <TextField  
+                    className="LogDuo"
                     hintText="Podaj Miasto"
                     floatingLabelText="Miasto"
                     onChange={handleChange('city')}
                     defaultValue={values.city}/>
                     <TextField  
+                    className="LogDuo"
                     hintText="Podaj Kod Pocztowy XX-XXX"
                     floatingLabelText="XX-XXX"
                     onChange={handleChange('post')}
                     defaultValue={values.post}/>
                     <TextField  
+                    className="LogDuo"
                     hintText="Podaj Telefon Kontaktowy"
                     floatingLabelText="000-000-000"
                     onChange={handleChange('phone')}

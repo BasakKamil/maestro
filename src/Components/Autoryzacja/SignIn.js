@@ -56,7 +56,7 @@ export class SignIn extends Component {
                     label="Zaloguj !"
                     primary={true}
                     onClick={this.handleSubmit}
-                    className="ButtonLogin btn btn-success"
+                    className="ButtonLogin btn btn-warning"
                 />
                  <p className="ErrorInfo">
                          {authError ? <p>{authError}</p> : null}

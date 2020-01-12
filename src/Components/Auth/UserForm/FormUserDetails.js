@@ -18,12 +18,14 @@ export class FormUserDetails extends Component {
                 <React.Fragment>
                     <div className="container FormKamil">
                     <TextField  
+                    className="LogDuo"
                     hintText="Podaj imię"
                     floatingLabelText="Imię"
                     onChange={handleChange('name')}
                     defaultValue={values.name}/>
                     <br/>
                     <TextField  
+                    className="LogDuo"
                     hintText="Podaj Nazwisko"
                     floatingLabelText="Nazwisko"
                     onChange={handleChange('surname')}

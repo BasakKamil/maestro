@@ -90,7 +90,7 @@ ul{
     padding: 1%;
     width: 50%;
     z-index: 999999;
-    background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
+    background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
     margin-top: 3%;
     opacity: 0.85;
     margin-bottom: 5%;
@@ -110,7 +110,11 @@ ul{
     margin-top: 3%;
     opacity: 0.85;
     margin-bottom: 5%;
-    border-radius: 5px;
+	border-radius: 5px;
+	.LogDuo{
+		width: 90% !important;
+		margin: 0 auto;
+	}
 }
 .NowyK{
   a{
@@ -246,6 +250,8 @@ ul{
 }
 .NewM{
   width: 100%;
+  position: relative;
+  z-index: 99999;
   float: left;
   height: auto;
   min-height: 50px;
@@ -318,7 +324,9 @@ ul{
 }
 .LinksOut{
     display: block;
-    width: 100%;
+	width: 100%;
+	position: relative;
+	z-index: 999;
     height: auto;
     min-height: 50px;
     ul{

@@ -25,6 +25,7 @@ export class Confirm extends Component {
                     <TextField  
                     hintText="Podaj Email"
                     type="email"
+                    className="LogDuo"
                     floatingLabelText="Email"
                     onChange={handleChange('email')}
                     defaultValue={values.email}/>
@@ -32,6 +33,7 @@ export class Confirm extends Component {
                     <TextField  
                     hintText="Podaj Hasło"
                     type="password"
+                    className="LogDuo"
                     floatingLabelText="Hasło"
                     onChange={handleChange('password')}
                     defaultValue={values.password}/>
