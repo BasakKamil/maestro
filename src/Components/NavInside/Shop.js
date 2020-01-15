@@ -1,18 +1,20 @@
-import React, {  useRef, useEffect, Component } from 'react';
-import {TweenMax, Power3} from 'gsap';
-import logo from '../../images/star.png';
+import React, {  Component } from 'react';
+// import {TweenMax, Power3} from 'gsap';
+// import logo from '../../images/star.png';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ProductAll from '../Products/ProductAll';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
+// import Filter from '../../store/shop/filter';
 
 
 
 class Shop extends Component{
 
     state ={
-        products : []
+        products: [],
+        filteredProducts:[]
     }
     // const logoItem = useRef(null);
     // const textItem = useRef(null);
@@ -39,7 +41,9 @@ class Shop extends Component{
     //             })
     //         };
     //     }, [])
-
+    handleAddToCard = (e,product) => {
+        console.log(product.name + e);
+    }
    
         render(){
         const {auth} = this.props;
@@ -48,8 +52,10 @@ class Shop extends Component{
             if(!auth.uid) return <Redirect to="/signin" />
             return (
                 <div className="ShopKamila">
-                    <img src={logo} alt="" />
-                           <ProductAll products={products}/>
+                    {/* <img src={logo} alt="" /> */}
+                    {/* <Filter> */}
+                           <ProductAll products={products} handleAddToCard={this.handleAddToCard}/>
+                    {/* </Filter> */}
                 </div>
                 
             )

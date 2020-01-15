@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Title from '../Animate/Title';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const About = () =>{
-    
+class About extends Component{
+    render(){
+        const {auth} = this.props;
+        if(!auth.uid) return <Redirect to="/signin" />
         return (
             <div className="container AboutKamil">
                 <Title lineContent="Witaj w" lineContent2="O Mnie"/>
@@ -12,6 +16,14 @@ const About = () =>{
             </div>
         )
     
+    }
+ 
+}
+const mapStateToProps = (state) => {
+    return{
+        auth: state.firebase.auth
+    }
 }
 
-export default About
+
+export default connect(mapStateToProps)(About)
