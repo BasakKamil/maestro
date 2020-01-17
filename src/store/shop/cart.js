@@ -15,7 +15,7 @@ class Cart extends Component{
     render(){
         if(this.props.items.length === 0){
             return(
-                <div className="NullBasket">Koszyk jest pusty ;(</div>
+                <div className="NiceBasket">Koszyk jest pusty ;(</div>
             )
         } 
         return (
@@ -23,13 +23,13 @@ class Cart extends Component{
                     <table>
                         <tbody>
                             <tr>
-                                <th>Nazwa Przedmiotu:</th>
-                                <th>Cena Przedmiotu:</th>
+                                <th>Nazwa:</th>
+                                <th>Cena:</th>
                             </tr>
                             {this.props.items.map((item,index) => {
                                 return <tr key={index}>
                                     <td>
-                                        <button onClick={()=>this.props.removeFromCart(index)}>Usuń</button>
+                                        <button  className="btn btn-danger" onClick={()=>this.props.removeFromCart(index)}>Usuń</button>
                                     </td>
                                      <td>{item.name}</td>
                                      <td>{item.price}</td>
@@ -37,7 +37,7 @@ class Cart extends Component{
                             })}
                         </tbody>
                     </table>
-                            <p>
+                            <p className="TotalBasket">
                                     Wszystko : {this.total()} zł
                             </p>
 

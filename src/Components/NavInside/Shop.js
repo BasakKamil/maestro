@@ -17,7 +17,6 @@ class Shop extends Component{
         super();
       
         this.state ={
-            products: [],
             filteredProducts:[],
             cart:[]
         }

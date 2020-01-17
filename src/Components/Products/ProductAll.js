@@ -28,7 +28,7 @@ render(){
             
             return(
                 
-                <div>
+                <div className="ProductShow">
                 {this.props.products && this.props.products.map(product => {
                     return (
                      <ProductDetails product={product} addToCart={this.props.addToCart} key={product.id} />
