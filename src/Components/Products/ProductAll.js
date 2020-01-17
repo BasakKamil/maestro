@@ -5,17 +5,25 @@ class ProductAll extends Component {
     constructor(props){
         super(props);
         this.state = {
-            products :  []
-            
+            products :  [],
+           
         }
+        
     }
-   
+
    
     
-render(){   
+    handleAddToCard = (e,product) => {
+        console.log(product.name + e);
+    }
+    kmail= (e) => {
+        console.log('kurde');
+    }
+
+render(){  
     
     const {products} = this.props;
-  
+
    
         if(Array.isArray(products)){
             
@@ -24,7 +32,7 @@ render(){
                 <div>
                 {this.props.products && this.props.products.map(product => {
                     return (
-                     <ProductDetails product={product} handleAddToCard={this.props.handleAddToCard} key={product.id}/>
+                     <ProductDetails product={product} addToCart={this.props.addToCart} key={product.id} kamil={this.kamil}/>
                     ) 
                 })}
             </div>

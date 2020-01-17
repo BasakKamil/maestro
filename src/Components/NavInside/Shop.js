@@ -6,16 +6,29 @@ import { Redirect } from 'react-router-dom';
 import ProductAll from '../Products/ProductAll';
 import { compose } from 'redux';
 import { firestoreConnect } from 'react-redux-firebase';
-// import Filter from '../../store/shop/filter';
+import Filter from '../../store/shop/filter';
+import Cart from '../../store/shop/cart';
+// import firebase from '../../config/fbconfig';
 
 
 
 class Shop extends Component{
-
-    state ={
-        products: [],
-        filteredProducts:[]
+    constructor(){
+        super();
+      
+        this.state ={
+            products: [],
+            filteredProducts:[],
+            cart:[]
+        }
+        this.addToCart = this.addToCart.bind(this)
     }
+    addToCart = (item) => {
+        const cart = [...this.state.cart,item ]
+        this.setState({cart})
+    }
+   
+    
     // const logoItem = useRef(null);
     // const textItem = useRef(null);
     
@@ -41,21 +54,47 @@ class Shop extends Component{
     //             })
     //         };
     //     }, [])
-    handleAddToCard = (e,product) => {
-        console.log(product.name + e);
-    }
    
-        render(){
-        const {auth} = this.props;
+    handleChangeSort = (e) =>{
+        this.setState({sort: e.target.value});
+        this.listProducts();
+    }
+
+    listProducts(){
         const {products} = this.props;
-            
+        console.log(products);
+        this.setState(state =>{
+            if(state.sort !== ''){
+                state.sort((a,b) =>(state.sort==='lowest')?(a.price < b.price?1:-1):(a.price > b.price)?1:-1);
+            }else{
+                state.products.sort((a,b)=>(a.id<b.id?1:-1));
+            }
+            return {filteredProducts: state.products};
+        })
+    }
+    componentDidMount(){
+        // this.ref = firebase.syncState('products',{
+        //     context: this,
+        //     state: 'products'
+        // });
+        // console.log(this.state.products);
+    }
+
+  
+  
+    render(){
+             const {auth} = this.props;
+             const {products} = this.props;
+           
             if(!auth.uid) return <Redirect to="/signin" />
             return (
                 <div className="ShopKamila">
-                    {/* <img src={logo} alt="" /> */}
-                    {/* <Filter> */}
-                           <ProductAll products={products} handleAddToCard={this.handleAddToCard}/>
-                    {/* </Filter> */}
+                    <Filter size={this.state.size} sort={this.state.sort} handleChangeSize={this.handleChangeSize}
+                    handleChangeSort={this.handleChangeSort} count={this.state.filteredProducts.length}/>
+                    <hr/>
+                    <ProductAll products={products} addToCart={this.addToCart}/>
+                    <Cart items={this.state.cart}/>
+   
                 </div>
                 
             )
@@ -67,16 +106,15 @@ class Shop extends Component{
             }
         }
 const mapStateToProps = (state,ownProps) => {
-   
+    
     const products = state.firestore.ordered.products;
- 
-
+    
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,
-        products: products
-       
+        products: products      
     }
+    
 }
 
 export default compose (

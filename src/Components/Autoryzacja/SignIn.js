@@ -61,7 +61,8 @@ export class SignIn extends Component {
                  <p className="ErrorInfo">
                          {authError ? <p>{authError}</p> : null}
                  </p>
-                 </div>    
+                 </div>   
+                 <div className="work">Website/App for Everybody and repair Apple !</div> 
                  </React.Fragment>
              </MuiThemeProvider>
            

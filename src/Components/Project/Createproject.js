@@ -59,7 +59,7 @@ export class CreateProject extends Component {
                         </div>
 
                         <div className="input-field">
-                            <button className="btn btn-success">Zarejstruj się!</button>
+                            <button className="btn btn-success">Zaleć!</button>
                         </div>
 
                         
