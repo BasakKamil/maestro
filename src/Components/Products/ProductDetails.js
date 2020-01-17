@@ -4,11 +4,7 @@ import React, { Component } from 'react';
 // import formatCurrency from '../../store/shop/util';
 
 class ProductDetails extends Component{
-total(){
-        return this.props.reduce((total,product)=>{
-            return total + product.price
-        },0)
-}
+
 
 render(){
 
@@ -21,7 +17,7 @@ return(
        <p>Cena: {product.price}</p>
 
         {/* <p>Cena: {formatCurrency(product.price)}</p> */}
-       <button className="btn btn-success" onClick={(e) => this.props.addToCart(product)} >Add</button>
+       <button className="btn btn-success" onClick={() => this.props.addToCart(product)} >Add</button>
     </div>
 )
 

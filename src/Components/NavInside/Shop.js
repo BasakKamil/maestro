@@ -22,12 +22,20 @@ class Shop extends Component{
             cart:[]
         }
         this.addToCart = this.addToCart.bind(this)
+        this.removeFromCart = this.removeFromCart.bind(this)
+        
     }
-    addToCart = (item) => {
-        const cart = [...this.state.cart,item ]
+    addToCart = (product) => {
+        console.log(product)
+        const cart = [...this.state.cart,product ]
         this.setState({cart})
     }
    
+    removeFromCart = (index) => {
+        const cart = [...this.state.cart,]
+        cart.splice(index,1)
+        this.setState({cart})
+    }
     
     // const logoItem = useRef(null);
     // const textItem = useRef(null);
@@ -72,13 +80,7 @@ class Shop extends Component{
             return {filteredProducts: state.products};
         })
     }
-    componentDidMount(){
-        // this.ref = firebase.syncState('products',{
-        //     context: this,
-        //     state: 'products'
-        // });
-        // console.log(this.state.products);
-    }
+   
 
   
   
@@ -93,7 +95,7 @@ class Shop extends Component{
                     handleChangeSort={this.handleChangeSort} count={this.state.filteredProducts.length}/>
                     <hr/>
                     <ProductAll products={products} addToCart={this.addToCart}/>
-                    <Cart items={this.state.cart}/>
+                    <Cart items={this.state.cart} removeFromCart={this.removeFromCart}/>
    
                 </div>
                 

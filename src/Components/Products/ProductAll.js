@@ -11,14 +11,13 @@ class ProductAll extends Component {
         
     }
 
-   
+total(){
+        return this.props.reduce((total,product)=>{
+            return total + product.price
+        },0)
+} 
     
-    handleAddToCard = (e,product) => {
-        console.log(product.name + e);
-    }
-    kmail= (e) => {
-        console.log('kurde');
-    }
+
 
 render(){  
     
@@ -32,7 +31,7 @@ render(){
                 <div>
                 {this.props.products && this.props.products.map(product => {
                     return (
-                     <ProductDetails product={product} addToCart={this.props.addToCart} key={product.id} kamil={this.kamil}/>
+                     <ProductDetails product={product} addToCart={this.props.addToCart} key={product.id} />
                     ) 
                 })}
             </div>
