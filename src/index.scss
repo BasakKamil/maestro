@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Righteous&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
 
 $background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
 $famillyLog: 'Kanit', sans-serif;
 $fontBut: 'Righteous', cursive;
+$fontcena: 'Anton', sans-serif;
 body {
   margin: 0;
   padding: 0;
@@ -38,15 +40,24 @@ body {
 		}
 	}
 }
+.KamilABut{
+		margin-left: 2%;
+		margin-right: 2%;
+		margin-top: 5px;
+}
 .ProductShow{
 	width: 80%;
     float: left;
 }
 .TotalBasket{
     background: lightyellow;
-    color: black;
+	color: black;
+	font-family: $fontcena;
     margin-top: 2%;
-    font-size: 20px;
+	font-size: 20px;
+	b{
+		color: purple;
+	}
 }
 .DashboardCont{
 	.row{
@@ -181,10 +192,28 @@ ul{
     border-radius: 10px;
     margin: 0 auto;
     margin-bottom: 2%;
+    height: auto;
     margin-top: 2%;
+    min-height: 120px;
+	display: flex;
+	position: relative;
+		.ProductInfo{
+			width: 40%;
+			float: left;
+			border-right: 1px solid darkgrey;
+				
+		}
+		.PhotoProduct{
+			width: 40%;
+			float: left;
+			img{
+				width: 100%;
+			}
+		}
 	button{	
 			margin: 0;
 			margin-bottom: 3%;
+			margin-top: 3%;
 	}
 }
 .FormKamil{

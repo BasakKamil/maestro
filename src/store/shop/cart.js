@@ -40,7 +40,7 @@ class Cart extends Component{
                         </tbody>
                     </table>
                             <p className="TotalBasket">
-                                    Wszystko : {this.total()} zł
+                                <b>  Wszystko : {this.total()} zł</b>
                             </p>
                             <button className="btn btn-danger">Kup !</button>
 

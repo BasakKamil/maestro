@@ -4,6 +4,7 @@ import React, {  Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ProductAll from '../Products/ProductAll';
+import History from '../../store/shop/history';
 import Filter from '../../store/shop/filter';
 import Cart from '../../store/shop/cart';
 // import firebase from '../../config/fbconfig';
@@ -93,6 +94,7 @@ class Shop extends Component{
                 <div className="ShopKamila">
                     <Filter size={this.state.size} sort={this.state.sort} handleChangeSize={this.handleChangeSize}
                     handleChangeSort={this.handleChangeSort} count={this.state.filteredProducts.length}/>
+                   <History/>
                     <hr/>
                     <ProductAll />
                     <Cart />

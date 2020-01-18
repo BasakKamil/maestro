@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 
+
 // import formatCurrency from '../../store/shop/util';
 
 class ProductDetails extends Component{
@@ -9,13 +10,16 @@ class ProductDetails extends Component{
 render(){
 
 const {product} = this.props;
+const img = this.props.product.img;
 return(
    
     <div className="IteamDetails">  
-       <p>Nazwa: {product.name}</p>
-       <p>Opis: {product.content}</p>
-       <p>Cena: {product.price}</p>
-
+        <div className="ProductInfo">
+            <b>Nazwa: {product.name}</b>
+            <p>Opis: {product.content}</p>
+            <p>Cena: {product.price}</p>
+       </div>
+        <div className="PhotoProduct"> <img src={img} alt=""/></div>
         {/* <p>Cena: {formatCurrency(product.price)}</p> */}
        <button className="btn btn-success" onClick={() => this.props.addToCart(product)} >Add</button>
     </div>
