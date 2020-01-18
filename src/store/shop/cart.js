@@ -34,7 +34,7 @@ class Cart extends Component{
                                         <button  className="btn btn-dark" onClick={()=>this.props.removeFromCart(index)}>Usuń</button>
                                     </td>
                                      <td>{item.name}</td>
-                                     <td>{item.price}</td>
+                                     <td>{item.price} zł</td>
                                 </tr>
                             })}
                         </tbody>
