@@ -24,11 +24,12 @@ body {
 .NiceBasket{
 	position: fixed;
     z-index: 99999999999999;
-    padding: 2%;
+    padding: 1%;
     display: block;
     background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
     right: 2.5%;
-    top: 35%;
+	top: 35%;
+	width: 20%;
 	border-radius: 
 	10px;
 	tr{
