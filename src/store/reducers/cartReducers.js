@@ -63,8 +63,7 @@ const cartReducers = (state,action) => {
                historyIndex
            }
         }
-
- 
+   
         // eslint-disable-next-line no-fallthrough
         default : {
             return state

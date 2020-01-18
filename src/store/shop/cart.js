@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
+import {createOrder} from '../actions/createOrder';
+import { Redirect } from 'react-router-dom';
 
 
 
 class Cart extends Component{
   
-    total= () =>{
+    total = () =>{
         return this.props.items.reduce((total,item)=>{
             return total + item.price
         },0)
     }
 
+    order = () => {    
+       this.props.createOrder(this.props.items)
+       console.log(this.props)
+    }
 
     render(){
-       
+        const {auth} = this.props;
+        
+        if(!auth.uid) return <Redirect to="/signin" />
         if(this.props.items.length === 0){
             return(
                 <div className="NiceBasket">Koszyk jest pusty ;(</div>
@@ -42,7 +49,7 @@ class Cart extends Component{
                             <p className="TotalBasket">
                                 <b>  Wszystko : {this.total()} zł</b>
                             </p>
-                            <button className="btn btn-danger">Kup !</button>
+                            <button className="btn btn-danger" onClick={this.order}>Kup !</button>
 
                 </div>
         )
@@ -53,7 +60,8 @@ class Cart extends Component{
 
     const mapStateToProps = (state) => {
         return{
-            items: state.cart.cart
+            items: state.cart.cart,
+            auth: state.firebase.auth
         }
     }
 
@@ -65,7 +73,9 @@ class Cart extends Component{
                     type: 'REMOVE_FROM_CART',
                     index
                 })
-            }
+            },
+            createOrder: (order) =>  dispatch(createOrder(order))
+            
         }
     }
 

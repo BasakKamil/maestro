@@ -70,8 +70,7 @@ class Shop extends Component{
     }
 
     listProducts(){
-        const {products} = this.props;
-        console.log(products);
+        // const {products} = this.props;
         this.setState(state =>{
             if(state.sort !== ''){
                 state.sort((a,b) =>(state.sort==='lowest')?(a.price < b.price?1:-1):(a.price > b.price)?1:-1);
@@ -110,12 +109,11 @@ class Shop extends Component{
             }
         }
 const mapStateToProps = (state,ownProps) => {
-    
-
+    const products = state.firestore.ordered.products;
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,
-
+        products: products
     }
     
 }

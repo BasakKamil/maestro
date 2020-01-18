@@ -17,7 +17,7 @@ return(
         <div className="ProductInfo">
             <b>Nazwa: {product.name}</b>
             <p>Opis: {product.content}</p>
-            <p>Cena: {product.price}</p>
+            <p>Cena: {product.price} zł</p>
        </div>
         <div className="PhotoProduct"> <img src={img} alt=""/></div>
         {/* <p>Cena: {formatCurrency(product.price)}</p> */}
