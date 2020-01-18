@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import {connect} from 'react-redux';
 
 // import formatCurrency from '../../store/shop/util';
 
@@ -25,4 +25,16 @@ return(
 }
 }
 
-export default ProductDetails
+
+const mapDispatchToProps = (dispatch) =>{
+    return{
+        addToCart : (product) => {
+                        dispatch({
+                            type: 'ADD_TO_CART',
+                            product
+                        })
+                    }
+
+    }
+}
+export default connect(null,mapDispatchToProps)(ProductDetails)

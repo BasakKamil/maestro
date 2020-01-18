@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import ProductDetails from '../Products/ProductDetails';
+import { compose } from 'redux';
+import { firestoreConnect } from 'react-redux-firebase';
+import { connect } from 'react-redux';
 
 class ProductAll extends Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            products :  [],
-           
-        }
-        
-    }
+ 
 
 total(){
         return this.props.reduce((total,product)=>{
@@ -22,7 +18,7 @@ total(){
 render(){  
     
     const {products} = this.props;
-
+   
    
         if(Array.isArray(products)){
             
@@ -31,7 +27,7 @@ render(){
                 <div className="ProductShow">
                 {this.props.products && this.props.products.map(product => {
                     return (
-                     <ProductDetails product={product} addToCart={this.props.addToCart} key={product.id} />
+                     <ProductDetails product={product} key={product.id} />
                     ) 
                 })}
             </div>
@@ -43,5 +39,23 @@ render(){
 
 }
 }
+const mapStateToProps = (state,ownProps) => {
+    
+    const products = state.firestore.ordered.products;
 
-export default ProductAll
+    return{
+        auth: state.firebase.auth,
+        profile: state.firebase.profile,
+        products: products
+
+    }
+    
+}
+
+
+export default compose (
+    connect(mapStateToProps),
+    firestoreConnect([
+        {collection: 'products'}
+    ])
+)(ProductAll)

@@ -4,8 +4,6 @@ import React, {  Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import ProductAll from '../Products/ProductAll';
-import { compose } from 'redux';
-import { firestoreConnect } from 'react-redux-firebase';
 import Filter from '../../store/shop/filter';
 import Cart from '../../store/shop/cart';
 // import firebase from '../../config/fbconfig';
@@ -18,18 +16,21 @@ class Shop extends Component{
       
         this.state ={
             filteredProducts:[],
-            cart:[]
+            cart: []
+            
         }
         this.addToCart = this.addToCart.bind(this)
         this.removeFromCart = this.removeFromCart.bind(this)
         
+        
     }
+    //Stara wersja bez Reduxa
     addToCart = (product) => {
         console.log(product)
         const cart = [...this.state.cart,product ]
         this.setState({cart})
     }
-   
+     //Stara wersja bez Reduxa
     removeFromCart = (index) => {
         const cart = [...this.state.cart,]
         cart.splice(index,1)
@@ -85,7 +86,7 @@ class Shop extends Component{
   
     render(){
              const {auth} = this.props;
-             const {products} = this.props;
+
            
             if(!auth.uid) return <Redirect to="/signin" />
             return (
@@ -93,8 +94,8 @@ class Shop extends Component{
                     <Filter size={this.state.size} sort={this.state.sort} handleChangeSize={this.handleChangeSize}
                     handleChangeSort={this.handleChangeSort} count={this.state.filteredProducts.length}/>
                     <hr/>
-                    <ProductAll products={products} addToCart={this.addToCart}/>
-                    <Cart items={this.state.cart} removeFromCart={this.removeFromCart}/>
+                    <ProductAll />
+                    <Cart />
    
                 </div>
                 
@@ -108,19 +109,14 @@ class Shop extends Component{
         }
 const mapStateToProps = (state,ownProps) => {
     
-    const products = state.firestore.ordered.products;
-    
+
     return{
         auth: state.firebase.auth,
         profile: state.firebase.profile,
-        products: products      
+
     }
     
 }
 
-export default compose (
-    connect(mapStateToProps),
-    firestoreConnect([
-        {collection: 'products'}
-    ])
-)(Shop)
+
+export default connect(mapStateToProps)(Shop)

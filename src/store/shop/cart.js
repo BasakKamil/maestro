@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-
+import { connect } from 'react-redux';
 
 
 
 
 class Cart extends Component{
-
+  
     total= () =>{
         return this.props.items.reduce((total,item)=>{
             return total + item.price
         },0)
     }
 
+
     render(){
+       
         if(this.props.items.length === 0){
             return(
                 <div className="NiceBasket">Koszyk jest pusty ;(</div>
@@ -29,7 +31,7 @@ class Cart extends Component{
                             {this.props.items.map((item,index) => {
                                 return <tr key={index}>
                                     <td>
-                                        <button  className="btn btn-danger" onClick={()=>this.props.removeFromCart(index)}>Usuń</button>
+                                        <button  className="btn btn-dark" onClick={()=>this.props.removeFromCart(index)}>Usuń</button>
                                     </td>
                                      <td>{item.name}</td>
                                      <td>{item.price}</td>
@@ -40,6 +42,7 @@ class Cart extends Component{
                             <p className="TotalBasket">
                                     Wszystko : {this.total()} zł
                             </p>
+                            <button className="btn btn-danger">Kup !</button>
 
                 </div>
         )
@@ -48,4 +51,22 @@ class Cart extends Component{
 
     }
 
-export default Cart
+    const mapStateToProps = (state) => {
+        return{
+            items: state.cart.cart
+        }
+    }
+
+    const mapDispatchToProps = (dispatch) => {
+       
+        return{
+            removeFromCart : (index) => {
+                dispatch({
+                    type: 'REMOVE_FROM_CART',
+                    index
+                })
+            }
+        }
+    }
+
+export default connect(mapStateToProps,mapDispatchToProps)(Cart)
