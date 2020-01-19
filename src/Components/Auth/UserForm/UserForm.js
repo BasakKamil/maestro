@@ -16,7 +16,7 @@ export class UserForm extends Component {
         address: '',
         post: '',
         city: '',
-        phone: '',
+        phone: 0 ,
         date: new Date()
     }
     //Przejscie dalej

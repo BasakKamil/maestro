@@ -24,6 +24,17 @@ body {
 .Sum{
     width: 100%;
 }
+.OrderSum{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+.InfoProfile{
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
 .NiceBasket{
 	position: fixed;
     z-index: 99999999999999;
@@ -93,6 +104,16 @@ body {
 		opacity: 0.75;
 	
 }
+.OrderSum{
+	tbody{
+		tr:nth-child(1){
+			background: black;
+			color: white;
+	}
+
+	}
+}
+
 .LogoKamila{
 	z-index: 99;
     display: block;
@@ -224,12 +245,16 @@ ul{
 			margin-top: 3%;
 	}
 }
+.Description{
+	max-height: 200px;
+}
 .SumOrderKamila{
     display: block;
     position: relative;
     z-index: 9999999;
     width: 90%;
-    margin: 0 auto;
+	margin: 0 auto;
+	display: flow-root;
     margin-top: 2%;
     background: white;
     border-radius: 10px;

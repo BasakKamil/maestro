@@ -1,15 +1,17 @@
-export const createOrder = (order) => {
+export const createOrder = (order,description) => {
+  
     return (dispatch,getState, {getFirebase, getFirestore}) => {
         const firestore = getFirestore();
         const profile = getState().firebase.profile;
         const author = getState().firebase.auth.uid;
-        console.log(order);
+        console.log(description);
         firestore.collection('orders').add({
-            ...order,
             authorFirstName: profile.name,
             authorLastName: profile.surname,
             authorId: author,
-            createdAt: new Date()
+            createdAt: new Date(),
+            description: description,
+            ...order
         }).then(()=>{
             dispatch({type: 'CREATE_ORDER', order});
         }).catch((err)=>{
