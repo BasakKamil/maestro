@@ -21,6 +21,9 @@ body {
     margin-top: 5%;
   }
 }
+.Sum{
+    width: 100%;
+}
 .NiceBasket{
 	position: fixed;
     z-index: 99999999999999;
@@ -41,15 +44,20 @@ body {
 		}
 	}
 }
+.NiceBasketNull{
+    width: 15%;
+    position: fixed;
+    right: 1.5%;
+    padding: 2px;
+    border-radius: 10px;
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
 .KamilABut{
 		margin-left: 2%;
 		margin-right: 2%;
 		margin-top: 5px;
 }
-.ProductShow{
-	width: 80%;
-    float: left;
-}
+
 .TotalBasket{
     background: lightyellow;
 	color: black;
@@ -188,13 +196,12 @@ ul{
 	}
 }
 .IteamDetails{
-	width: 90%;
+	width: 44%;
+	float: left;
     background: white;
     border-radius: 10px;
-    margin: 0 auto;
-    margin-bottom: 2%;
+    margin: 3%;  
     height: auto;
-    margin-top: 2%;
     min-height: 120px;
 	display: flex;
 	position: relative;
@@ -217,6 +224,17 @@ ul{
 			margin-top: 3%;
 	}
 }
+.SumOrderKamila{
+    display: block;
+    position: relative;
+    z-index: 9999999;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2%;
+    background: white;
+    border-radius: 10px;
+    min-height: 100px;
+}
 .FormKamil{
     display: block;
     position: relative;
@@ -225,7 +243,7 @@ ul{
     z-index: 999999;
     background-image: linear-gradient(to top, #fddb92 0%, #d1fdff 100%);
     margin-top: 3%;
-    opacity: 0.85;
+    opacity: 0.92;
     margin-bottom: 5%;
 	border-radius: 5px;
 	.LogDuo{
@@ -245,12 +263,12 @@ ul{
 }
 
 .ContactPage{
-  margin-top: 6%;
+  margin-top: 1%;
   background: white;
   z-index: 9999999;
   position: relative;
   z-index: 9;
-  width: 80%;
+  width: 65%;
   left: 10%;
   border-radius: 10px;
   padding: 2%;
@@ -343,12 +361,12 @@ ul{
 }
 .Dolce{
   font-size: 20px;
-  color: #009688;
+  color: red;
   font-weight: bold;
 }
 .Frank{
   font-size: 20px;
-  color: #009688;
+  color: blue;
   font-weight: bold;
 }
 .LogoKamilaNew{
@@ -781,7 +799,7 @@ svg:hover{
 	.st315{fill:#C0B300;}
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 820px){
   .input-field { 
     label{
       width: 100%;
@@ -805,7 +823,21 @@ svg:hover{
       width: 100%;
     }
   }
-
+  .ProductShow{
+	  width: 100%;
+  }
+  .NiceBasket{
+	  width: 30%;
+  }
+  .ShopKamila{
+	  hr{
+		  display: none;
+	  }
+  }
+}
+@media screen and (max-width: 620px){
+.IteamDetails {
+	width: 94%;}
 }
 @media screen and (max-width: 1000px){
 	.FormKamilLog{

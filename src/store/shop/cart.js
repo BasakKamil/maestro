@@ -2,10 +2,35 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {createOrder} from '../actions/createOrder';
 import { Redirect } from 'react-router-dom';
+import StepOrdertwo from './Stepordertwo';
 
 
 
 class Cart extends Component{
+    constructor(){
+        super();
+        this.state={
+            stepOrder: 1
+        }
+        this.order = this.order.bind(this);
+    }
+   
+      //Przejscie dalej
+    nextStep = () => {
+        const {stepOrder} = this.state;
+        this.setState({
+            stepOrder: stepOrder + 1
+        });
+    }
+
+      //Cofnięcie się
+    prevStep = () => {
+        const {stepOrder} = this.state;
+        this.setState({
+            stepOrder: stepOrder - 1
+        })
+    }
+
   
     total = () =>{
         return this.props.items.reduce((total,item)=>{
@@ -15,19 +40,23 @@ class Cart extends Component{
 
     order = () => {    
        this.props.createOrder(this.props.items)
-       console.log(this.props)
     }
 
     render(){
         const {auth} = this.props;
+        const {stepOrder} = this.state;
         
         if(!auth.uid) return <Redirect to="/signin" />
         if(this.props.items.length === 0){
             return(
-                <div className="NiceBasket">Koszyk jest pusty ;(</div>
+                <div className="NiceBasketNull">Koszyk jest pusty ;(</div>
             )
         } 
-        return (
+        // eslint-disable-next-line default-case
+        switch(stepOrder){
+            case 1:
+            return (
+           
                 <div className="NiceBasket">
                     <table>
                         <tbody>
@@ -49,11 +78,26 @@ class Cart extends Component{
                             <p className="TotalBasket">
                                 <b>  Wszystko : {this.total()} zł</b>
                             </p>
-                            <button className="btn btn-danger" onClick={this.order}>Kup !</button>
+                            <button className="btn btn-danger" onClick={this.nextStep}>Kup !</button>
 
                 </div>
-        )
-       
+                )
+            case 2:
+                return (
+                    <StepOrdertwo 
+                    order={this.order}
+                    items={this.props.items}
+                    prevStep ={this.prevStep}
+                    nextStep={this.nextStep}
+                    profile={this.props.profile}
+                    />
+                )
+            case 3: 
+                return(
+                    <Redirect to="/ordersum"/>
+                )
+             }
+            
         }
 
     }
@@ -61,7 +105,8 @@ class Cart extends Component{
     const mapStateToProps = (state) => {
         return{
             items: state.cart.cart,
-            auth: state.firebase.auth
+            auth: state.firebase.auth,
+            profile: state.firebase.profile
         }
     }
 

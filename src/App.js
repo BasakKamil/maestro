@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import ThreeBack from './Components/Animate/ThreeBack';
-import {BrowserRouter,Switch,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import Dashboard from './Components/Dashboard/Dashboard';
 import Shop from './Components/NavInside/Shop';
 import Createproject from './Components/Project/Createproject';
@@ -11,7 +11,8 @@ import ProjectDetails from './Components/Project/ProjectDetails';
 import Contact from './Components/NavInside/Contact';
 import About from './Components/NavInside/About';
 import UserForm from './Components/Auth/UserForm/UserForm';
-
+// import {useTransitions, animated} from 'react-spring';
+import Ordersum from './store/shop/Ordersum';
 
 const routes = [
   {path: '/shop', name: "Shop", Component: Shop },
@@ -19,34 +20,42 @@ const routes = [
   {path: '/about', name: "About", Component: About }
 ]
 
-function App() {
+const App = () => {
+
+  // const { location } = useContext(__RouterContext);
+  // const transitions = useTransitions(location,loaction=>location.pathname,{
+  //     from: {opacity:0,transform: "translate(100%,0)"},
+  //     enter: {opacity:1,transform: "translate(0%,0)"},
+  //     leave:{opacity:0,transform: "translate(-50%,0)"}
+  // });
+
   return (
     <React.Fragment>
-    <BrowserRouter>
+    <Router>
       <div className="App">
         <Navbar/>
-        <Switch>
-          <Route exact path="/" component={Dashboard}/>
-          <Route path="/project/:id" component={ProjectDetails}/>
-          <Route path="/createproject" component={Createproject}/>
-          <Route path="/signin" component={SignIn}/>
-          <Route path="/signup" component={UserForm}/>
-      
-        
-           {routes.map(({path,Component})=>{
-            return <Route key="name" path={path} exact>
-                      <div className="page">
-                         <Component/>
-                      </div>
-                   </Route>
-            })}
-          
-          
-        </Switch>
-        
-      </div>
-      
-    </BrowserRouter>
+        {/* {transitions.map(({item,props,key})=>(
+            <animated.div key={key} style={props}> */}
+               {/* <Switch location={item}> */}
+               <Switch>
+                  <Route exact path="/" component={Dashboard}/>
+                  <Route path="/project/:id" component={ProjectDetails}/>
+                  <Route path="/createproject" component={Createproject}/>
+                  <Route path="/signin" component={SignIn}/>
+                  <Route path="/signup" component={UserForm}/>
+                  <Route path="/ordersum" component={Ordersum}/>
+                  {routes.map(({path,Component})=>{
+                  return <Route key="name" path={path} exact>
+                             <div className="page">
+                              <Component/>
+                            </div>
+                        </Route>
+                   })}   
+                </Switch>
+            {/* </animated.div>
+        ))}   */}
+      </div>  
+    </Router>
     <ThreeBack/>
    </React.Fragment>
   )
