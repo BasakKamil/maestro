@@ -25,9 +25,9 @@ export class Stepordertwo extends Component {
                       
                 })}
                 </tbody>
-               <b className="AdressSend"> Adres do Wysyłki: </b>
              
                 </table>
+                <b className="AdressSend"> Adres do Wysyłki: </b>
                 <table>
                     <tbody>
                         <tr>

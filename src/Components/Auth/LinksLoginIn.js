@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOut } from '../../store/actions/authActions';
 import NewMenu from '../Layaut/NewMenu';
-
+// import Menu from '../Layaut/Menu';
 
 
 

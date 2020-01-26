@@ -2,13 +2,16 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {createOrder} from '../actions/createOrder';
 import { Redirect } from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
 
 
 
 class Ordersum extends Component{
 
     state = {
-        description: {}
+        description: {},
+        dolarek: 0, 
+        suma: 0
     }
 
     handleChange = input => e => {
@@ -20,7 +23,51 @@ class Ordersum extends Component{
     order = () =>{
         this.props.createOrder(this.props.items,this.state.description);
     }
+
+
+    dolce = (a) =>{
+        const proxyy = 'https://cors-anywhere.herokuapp.com/';
+        const doll = `${proxyy}https://api.nbp.pl/api/exchangerates/rates/c/usd?format=json`;
+        fetch(doll)
+        .then(res=> res.json())
+        .then(
+        arr=>{
+        const course =  arr.rates[0].bid;
+        function Round(n, k){
+          let factor = Math.pow(10, k+1);
+          n = Math.round(Math.round(n*factor)/10);
+          return n/(factor/10);
+        }
+        let ameryka =  Round(course, 2);
+        let sum = a/ameryka;
+        this.setState({dolarek : ameryka, suma: sum}); 
+        });
+             
+    }
+
+    totalsum = () =>{
+       return this.props.items.reduce((total,item)=>{
+            return total + item.price
+        },0)    
+
+    }
+
+  
+
+    handleToken = (token,addresses) =>{
+        console.log(token,addresses);
+        
+       
+    }
+    componentDidMount(){
+        let a = this.totalsum()
+        this.dolce(a);
+      
+       
+    }
+    
     render(){
+        
         const {auth} = this.props;
         const {items} = this.props;
         const {profile} = this.props;
@@ -76,6 +123,16 @@ class Ordersum extends Component{
                         </tr>
                     </tbody>
                 </table>
+                    <div>$ = {this.state.dolarek} <br/></div>
+                    <p>Suma: {this.totalsum()} zł</p>
+                    <p>Suma w $: {this.state.suma} $</p>
+                <StripeCheckout 
+                     stripeKey="pk_test_EcCwO3KxmaJx7fQb18wrJ4fZ00w3vwuc9G"
+                     token={this.handleToken} 
+                     amount={this.state.suma *100}/>
+
+
+                
                     <button onClick={this.order} className="btn btn-success">Zamów</button>
 
             </div>
