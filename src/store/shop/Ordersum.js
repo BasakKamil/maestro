@@ -54,8 +54,9 @@ class Ordersum extends Component{
 
   
 
-    handleToken = (token,addresses) =>{
-        console.log(token,addresses);
+    handleToken = (token,addresses,orders) =>{
+        console.log(token,addresses,orders);
+        this.order();
         
        
     }
@@ -129,11 +130,14 @@ class Ordersum extends Component{
                 <StripeCheckout 
                      stripeKey="pk_test_EcCwO3KxmaJx7fQb18wrJ4fZ00w3vwuc9G"
                      token={this.handleToken} 
+                     billingAddress
+                     shippingAddress
+                     orders={this.props.items}
                      amount={this.state.suma *100}/>
 
 
                 
-                    <button onClick={this.order} className="btn btn-success">Zamów</button>
+                    {/* <button onClick={this.order} className="btn btn-success">Zamów</button> */}
 
             </div>
         )
