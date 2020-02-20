@@ -17,11 +17,11 @@ return(
         <div className="ProductInfo">
             <b>Nazwa: {product.name}</b>
             <p>Opis: {product.content}</p>
-            <p>Cena: {product.price} zł</p>
+            <p class="price">Cena: {product.price} zł</p>
        </div>
         <div className="PhotoProduct"> <img src={img} alt=""/></div>
         {/* <p>Cena: {formatCurrency(product.price)}</p> */}
-       <button className="btn btn-success" onClick={() => this.props.addToCart(product)} >Add</button>
+       <button className="btn btn-danger" onClick={() => this.props.addToCart(product)} >Dodaj</button>
     </div>
 )
 
