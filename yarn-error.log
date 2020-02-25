@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js add redux
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js add google-map-react
 
 PATH: 
   /usr/local/share/dotnet/dotnet/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/share/dotnet/dotnet/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: ENOTDIR: not a directory, lstat '/Users/macbookpro/Projekty/iMajster/maestro/node_modules/google-map-react/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md'
+  Error: ENOTDIR: not a directory, lstat '/Users/macbookpro/Projekty/iMajster/maestro/node_modules/google-map-react/.github/ISSUE_TEMPLATE/BUG_REPORT.md'
 
 npm manifest: 
   {
@@ -54,6 +54,7 @@ npm manifest:
       "fs-extra": "7.0.1",
       "git": "^0.1.5",
       "google-map-react": "^1.1.5",
+      "grpc": "^1.24.2",
       "gsap": "^2.1.3",
       "html-webpack-plugin": "4.0.0-beta.5",
       "identity-obj-proxy": "3.0.0",
@@ -66,7 +67,7 @@ npm manifest:
       "mini-css-extract-plugin": "0.5.0",
       "moment": "^2.24.0",
       "next": "^9.1.7",
-      "node-sass": "^4.13.1",
+      "node-sass": "^4.12.1",
       "optimize-css-assets-webpack-plugin": "5.0.1",
       "pnp-webpack-plugin": "1.2.1",
       "postcss-flexbugs-fixes": "4.1.0",
