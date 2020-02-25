@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js add google-map-react
+  /usr/local/bin/node /usr/local/Cellar/yarn/1.16.0/libexec/bin/yarn.js add @types/googlemaps.infobubble
 
 PATH: 
   /usr/local/share/dotnet/dotnet/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/usr/local/share/dotnet/dotnet/bin
@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: ENOTDIR: not a directory, lstat '/Users/macbookpro/Projekty/iMajster/maestro/node_modules/google-map-react/.github/ISSUE_TEMPLATE/BUG_REPORT.md'
+  Error: ENOTDIR: not a directory, lstat '/Users/macbookpro/Projekty/iMajster/maestro/node_modules/google-map-react/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md'
 
 npm manifest: 
   {
@@ -23,6 +23,7 @@ npm manifest:
     "private": true,
     "dependencies": {
       "@babel/core": "7.4.3",
+      "@react-google-maps/api": "^1.8.3",
       "@svgr/webpack": "4.1.0",
       "@typescript-eslint/eslint-plugin": "1.6.0",
       "@typescript-eslint/parser": "1.6.0",
