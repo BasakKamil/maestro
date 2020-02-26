@@ -125,7 +125,7 @@ class Ordersum extends Component{
                     </tbody>
                 </table>
                     <div>$ = {this.state.dolarek} <br/></div>
-                    <p>Suma: {this.totalsum()} zł</p>
+                    <p className="EquilBasi">Suma: {this.totalsum()} zł</p>
                     <p>Suma w $: {this.state.suma} $</p>
                 <StripeCheckout 
                      stripeKey="pk_test_EcCwO3KxmaJx7fQb18wrJ4fZ00w3vwuc9G"
