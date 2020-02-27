@@ -26,6 +26,9 @@ export class Contact extends Component {
                     </div>
                     <div><h2>Gdzie mnie Szukać ?</h2>
                     Wraszawa - Wawer - Radość
+                    lub 
+                    Holandia:
+                    
                     </div>
                     </div>
                     <div className="AllMap">
