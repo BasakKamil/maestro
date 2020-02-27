@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Weather from '../API/Weather';
-// import Map from '../Layaut/Map';
+import Map from '../Layaut/Map';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 // import Title from '../Animate/Title';
@@ -32,7 +32,7 @@ export class Contact extends Component {
                     </div>
                     </div>
                     <div className="AllMap">
-                    {/* <Map/> */}
+                    <Map/>
                     </div>
                 </div>
                 
