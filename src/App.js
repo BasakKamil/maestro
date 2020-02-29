@@ -12,8 +12,8 @@ import Contact from './Components/NavInside/Contact';
 import About from './Components/NavInside/About';
 import UserForm from './Components/Auth/UserForm/UserForm';
 import Cv from './Components/Layaut/Cv';
-// import {useTransitions, animated} from 'react-spring';
 import Ordersum from './store/shop/Ordersum';
+// import {useTransitions, animated} from 'react-spring';
 
 const routes = [
   {path: '/shop', name: "Shop", Component: Shop },
