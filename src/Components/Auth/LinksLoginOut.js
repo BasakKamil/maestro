@@ -8,6 +8,7 @@ export class LinksLoginOut extends Component {
                <ul>
                  <li><button className="btn btn-dark NowyK"><Link to="/signin">Zaloguj się!</Link></button></li>
                  <li><button className="btn btn-danger NowyK"><Link to="/signup">Zarejstruj</Link></button></li> 
+                 <li><button className="btn btn-primary NowyK"><Link to="/contact">Kontakt</Link></button></li> 
                </ul> 
             </div>
         )
