@@ -221,6 +221,18 @@ ul{
 		font-family: $famillyLog;
 	}
 }
+.Kamcio{
+		position: relative;
+		z-index: 99999;
+}
+.Null{
+	background: red;
+    width: 100%;
+    height: auto;
+    min-height: 30px;
+    z-index: 9999999;
+    position: relative;
+}
 .IteamDetails{
 	width: 75%;
 	float: left;

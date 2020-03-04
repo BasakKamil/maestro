@@ -5,6 +5,7 @@ import Confirm from './Confirm';
 import Success from './Success';
 import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Nullinfo from './Nullinfo';
 
 export class UserForm extends Component {
     state = {
@@ -58,6 +59,7 @@ export class UserForm extends Component {
                     />
                 )
             case 2: 
+                if(!this.state.name || !this.state.surname) return <Nullinfo prevStep={this.prevStep}/>
                     return(
                     <FormPersonalDetails
                     nextStep={this.nextStep}
@@ -67,6 +69,7 @@ export class UserForm extends Component {
                     />
                     )
             case 3:
+                if(!this.state.address || !this.state.city || !this.state.post || !this.state.phone) return <Nullinfo prevStep={this.prevStep}/>
                     return(
                     <Confirm
                     nextStep={this.nextStep}
@@ -76,6 +79,7 @@ export class UserForm extends Component {
                     />
                     )
             case 4 :
+                if(!this.state.email || !this.state.password) return <Nullinfo prevStep={this.prevStep}/>
                     return(
                     <Success
                     nextStep={this.nextStep}

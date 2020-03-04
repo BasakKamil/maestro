@@ -48,7 +48,6 @@ export class FormPersonalDetails extends Component {
                     floatingLabelText="000-000-000"
                     onChange={handleChange('phone')}
                     defaultValue={values.phone}/>
-                   
                     <RaisedButton
                         label="Dalej"
                         primary={true}
