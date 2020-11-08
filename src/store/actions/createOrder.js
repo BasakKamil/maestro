@@ -11,7 +11,7 @@ export const createOrder = (order,description) => {
             authorId: author,
             createdAt: new Date(),
             description: description,
-            ...order
+            orders: order
         }).then(()=>{
             dispatch({type: 'CREATE_ORDER', order});
         }).catch((err)=>{

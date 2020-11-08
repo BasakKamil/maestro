@@ -17,9 +17,23 @@ exports.projectCreated = functions.firestore
     .onCreate(doc=>{
         const order = doc.data();
         const notifications = {
-            content: "Added a new Order",
+            content: `Zamówienie Nowe`,
             user: `${order.authorFirstName} ${order.authorLastName}`,
             time: admin.firestore.FieldValue.serverTimestamp()
         }
         return createNotification(notifications);
+});
+
+exports.userJoined = functions.auth.user()
+    .onCreate(user => {
+        return admin.firestore().collection('users')
+            .doc(user.uid).get().then(doc=>{
+                const newUser = doc.data();
+                const notification = {
+                    content: "Dołączył do imprezy",
+                    user: `${newUser.authorFirstName} ${newUser.authorLastName}`,
+                    time: admin.firestore.FieldValue.serverTimestamp()
+                }
+                return createNotification(notification);
+            })
 })

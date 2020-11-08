@@ -127,18 +127,19 @@ class Ordersum extends Component{
                     <div>$ = {this.state.dolarek} <br/></div>
                     <p className="EquilBasi">Suma: {this.totalsum()} zł</p>
                     <p>Suma w $: {this.state.suma} $</p>
-                <StripeCheckout 
-                     stripeKey="pk_test_EcCwO3KxmaJx7fQb18wrJ4fZ00w3vwuc9G"
-                     token={this.handleToken} 
-                     billingAddress
-                     shippingAddress
-                     orders={this.props.items}
-                     amount={this.state.suma *100}/>
 
 
+                    <div className="enquil">
+                        <StripeCheckout 
+                        stripeKey="pk_test_EcCwO3KxmaJx7fQb18wrJ4fZ00w3vwuc9G"
+                        token={this.handleToken} 
+                        billingAddress
+                        shippingAddress
+                        orders={this.props.items}
+                        amount={this.state.suma *100}/>
                 
-                    {/* <button onClick={this.order} className="btn btn-success">Zamów</button> */}
-
+                         <button onClick={this.order} className="btn btn-success">Zamów</button>
+                    </div>
             </div>
         )
     

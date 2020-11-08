@@ -225,6 +225,39 @@ ul{
 		position: relative;
 		z-index: 99999;
 }
+.Burgerek{
+	width: 20%;
+}
+.InUl{
+    display: block;
+    height: auto;
+    min-height: 50px;
+    width: 100%;
+	padding: 0;
+
+}
+.NewStat{
+	ul{
+		width: 100%;
+		display: flex;
+		li:nth-child(1){
+			color: red;
+		}
+		li{
+		
+			width: 50%;
+		}
+	}
+}
+.NotificationsKamcia{
+	background-color: black;
+	opacity: 1;
+    margin-top: 2%;
+	border-radius: 10px;
+	display: table;
+    padding: 2%;
+    color: white;
+}
 .Null{
 	background: red;
     width: 100%;
@@ -317,7 +350,7 @@ ul{
   z-index: 9999999;
   position: relative;
   z-index: 9;
-  width: 65%;
+  width: 80%;
   left: 10%;
   border-radius: 10px;
   padding: 2%;
@@ -433,7 +466,7 @@ ul{
   opacity: 0.5;
   ul{
     li{
-      width: 33%;
+      width: 25%;
     }
   }
 }
