@@ -32,13 +32,11 @@ class LinksLoginIn extends Component {
                  <li><NavLink to="/createproject">Zlecenie Naprawy!</NavLink></li> 
                  <li><button className="btn btn-primary" onClick={this.props.signOut}>Wyloguj się!</button></li> 
                  <li><button onClick={this.toogle}>Menu</button></li>
-                
-                
                </ul> 
                {this.state.isToggleOn ? <NewMenu toogle={this.toogle}/> : null}
             </div>
         )
-}
+    }
 }
 
 const mapDispatchToProps = (dispatch) => {

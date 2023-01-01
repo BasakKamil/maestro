@@ -10,8 +10,6 @@ class BOX1 extends Component{
         this.animate = this.animate.bind(this);
         this.addCube = this.addCube.bind(this);
         this.initializeCamera = this.initializeCamera.bind(this);
-        
-    
       }
     
      
